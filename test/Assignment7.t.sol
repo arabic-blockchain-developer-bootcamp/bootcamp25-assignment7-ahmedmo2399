@@ -8,6 +8,7 @@ contract Assignment7Test is Test {
     Assignment7 assignment;
     address owner = address(0x1); 
     function setUp() public {
+        // pass your token name and symbol here
         assignment = new Assignment7();
     }
 
