@@ -6,17 +6,17 @@ import {Assignment7} from "../src/Assignment7.sol";
 
 contract Assignment7Test is Test {
     Assignment7 assignment;
-
+    address owner = address(0x1); 
     function setUp() public {
         assignment = new Assignment7();
     }
 
     function testMintAndTransfer() public {
-        // Mint tokens to the test contract
-        assignment.mint(address(this), 1000 * 10**18);
+      
+        vm.prank(owner); 
+        assignment.mint(owner, 1000 * 10**18);
 
-        // Check balance of the test contract
-        uint256 balance = assignment.balanceOf(address(this));
+               uint256 balance = assignment.balanceOf(owner);
         assertEq(balance, 1000 * 10**18, "Balance should be 1000 tokens");
     }
 }
